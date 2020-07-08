@@ -29,6 +29,7 @@ The full dataset consists of 12 GB of users' interaction logs. Udacity has also 
 ### Licensing, Authors, Acknowledgements<a name="licensing"></a>
 MIT License
 
+I thank [Udacity](https://www.udacity.com) for their support. 
 
 
 
