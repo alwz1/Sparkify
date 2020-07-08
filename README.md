@@ -16,7 +16,9 @@ Amazon EMR
 
 
 ### File Descriptions<a name="file_descriptions"></a>
-
+- Sparkify.ipynb: notebook for data exploration, feature engineering, modeling and evaluation with mini dataset
+- Sparkify_aws.ipynb: notebook for modeling and evaluation with full dataset on Amazon EMR cluster
+- images: graphs
 - LICENSE.txt: MIT License
 
 ### Results<a name="results"></a>
