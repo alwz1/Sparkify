@@ -84,7 +84,23 @@ For the full dataset we make the following modifications to data preprocessing.�
 These modifications help keep the size of the preprocessed data in check to be trained efficiently on the AWS cluster.   
 We also prepare machine learning pipelines for logistic regression, random forest and gradient boosted trees models. Stages for the pipelines include indexing and one-hot encoding categorical columns, transforming columns into a single vector column, and scaling the values of the features into the range from 0 to 1.
 
+#### Modeling and Evaluation
+##### Mini Dataset
+We train logistic regression, random forest and gradient boosted trees models. The dataset is split into 80% train and 20% test datasets. The Spark ML pipelines are instantiated, and the models are first trained with default parameters for the classifiers. 
 
+Since we have imbalanced dataset, accuracy is not the best metrics to evaluate models' performance. Instead, we use weighted F1 scores as the metrics for evaluating performance of the models. In addition, we find AUC scores, area under ROC curve. The models are evaluated using the test dataset. For the mini dataset we get the following results.
+
+![f1_auc_mini](/images/f1_auc_mini.png)
+
+We have the best F1 score with the gradient boosted trees model. This model's hyper-parameters, stepSizeand maxIter are then tuned using a three-fold cross validation on the training dataset. We have the best F1 score of 0.98 for the mini dataset with stepSize = 0.5 and maxIter = 32. 
+
+##### Full Dataset
+
+Before the data preprocessing was adapted to include more aggregates by userId as mentioned in the previous section, training the gradient boosted trees model with full dataset on Amazon EMR cluster was taking a long time and would eventually time out. We tried increasing Spark driver memory, but the problem persisted. Preprocessing the full dataset with more aggregate features solved this problem. 
+
+On Amazon EMR cluster, we trained logistic regression, random forest and gradient boosted trees models. The cluster consisted of three nodes with instance type of m5.xlarge. The full dataset of 12GB was split into 80% train and 20% test datasets. Model performance was evaluated on test dataset. We used default parameters for logistic regression and random forest classifiers. For GBTClassifier we used maxDepth = 7, maxIter = 50, stepSize = 0.8, and subsamplingRate = 0.8 . The choice of these parameters was guided by our experience in training with mini dataset and available resources. We achieved excellent results with GBTClassifier with weighted F1 score of 0.97 and AUC of 0.98. 
+
+Models' performance with full dataset trained on Amazon EMR We also checked for precision and recall for our best model. For predicting churn users, we obtained precision of 0.97 and recall of 0.90.
 
 
 
