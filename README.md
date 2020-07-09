@@ -24,6 +24,29 @@ The full dataset consists of 12 GB of users' interaction logs. Udacity has also 
 - LICENSE.txt: MIT License
 
 ### Results<a name="results"></a>
+#### Exploratory Data Analysis
+There are 286500 records in the mini datatset. We find that there are missing values for registration. Users without registration may be guest users and are not valid for our churn analysis. We therefore drop the rows with missing registration values. After dropping, we still have missing values in `artist`, `length`, and `song`. However, a closer look at the `page` reveals that these columns do not have missing values when a user is on the page `NextSong`.
+
+We define churn event as a user visiting `Cancellation Confirmation` page and identify users who are churn. We find that the labels are not balanced. Only about 16% of the labels are for churn users.
+There are 255 distinct users and 52 of them are churn.
+
+![churn](/images/churns.png)
+
+#### Feature Engineering
+We create aggregate features to gain more insight into the behavior of users who stayed versus users who churn. We use these aggregates to observe how much of a specific action they experienced such as number of thumbs downs or how many times they added new friends per week. The relations between users' attributes such as gender, level, location, and churn events are also explored.
+
+![thumps_down](/images/num_Thumbs_Down.png)
+
+There are 104 female users and 121 male users. Twenty female users and thirty-two male users are churn.
+
+![gender](/images/gender.png)
+
+There are 195 users whose subscription level is free and 165 paid users. We find that paid users churn more. We notice that these two groups add up to more than the total number of distinct users. The reason is because some users change their subscription level multiple times.
+
+![level](/images/level.png)
+
+Next, we extract user's state from location and find the total number of churn events in each state. The number of churn events vary across the states, and thus users' states can be a potential feature in predicting churn.
+
 
 
 ### Licensing, Authors, Acknowledgements<a name="licensing"></a>
