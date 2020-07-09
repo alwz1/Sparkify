@@ -47,7 +47,16 @@ There are 195 users whose subscription level is free and 165 paid users. We find
 
 Next, we extract user's state from location and find the total number of churn events in each state. The number of churn events vary across the states, and thus users' states can be a potential feature in predicting churn.
 
+![state](/images/state.png)
 
+How long a user has been with Sparkify can be found from the registration and timestamp. We find that users who stayed tend to be with the service longer than those who churn.
+
+![registration_days](/images/days_since_registration.png)
+
+We also find the number of churn events for the time of day. For this mini dataset there are no churn events between 3 AM and 4 AM. Similar analysis is done for days and months, and we find that there are no churn events in September and December.
+
+![hourly_churn](/images/hourly_churn_events.png)
+![monthly_churn](/images/montly_churn_events.png)
 
 ### Licensing, Authors, Acknowledgements<a name="licensing"></a>
 MIT License
