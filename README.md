@@ -88,7 +88,7 @@ We also prepare machine learning pipelines for logistic regression, random fores
 ##### Mini Dataset
 We train logistic regression, random forest and gradient boosted trees models. The dataset is split into 80% train and 20% test datasets. The Spark ML pipelines are instantiated, and the models are first trained with default parameters for the classifiers. 
 
-Since we have imbalanced dataset, accuracy is not the best metrics to evaluate models' performance. Instead, we use weighted F1 scores as the metrics for evaluating performance of the models. In addition, we find AUC scores, area under ROC curve. The models are evaluated using the test dataset. For the mini dataset we get the following results.
+Since we have imbalanced dataset, accuracy is not the best metrics to evaluate models' performance. Instead, we use weighted F1 scores as the metrics for evaluating performance of the models. In addition, we find AUC scores, area under ROC curve. The models are evaluated using the test dataset. For the mini dataset using the default parameters for the classifiers, we obtain the following results.
 
 ![f1_auc_mini](/images/f1_auc_mini.png)
 
