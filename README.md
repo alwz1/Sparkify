@@ -106,6 +106,8 @@ We also checked for precision and recall for our best model. For predicting chur
 
 ![classification_report](/images/classification_report.png)
 
+![ROC](/images/ROC_Curve.png)
+
 
 
 While we already have a very good performance with our current model, there are still potential improvements. We could extract region from location and use it as a feature instead of state, use different time windows for creating aggregate features, and perform more hyperparameter tuning with grid search.
