@@ -13,7 +13,7 @@ Amazon EMR
 - Apache Spark
 
 ### Project Motivation<a name="project_motivation"></a>
-To prevent customer attrition, it is important to identify those who are at risk of churn. In this project, we perform churn prediction on users' data log of Sparkify which is a fictional music streaming service created by Udacity. On Sparkify, users can upgrade, downgrade or cancel their subscription at any time. We define cancellation confirmations of service as churn events.
+To prevent customer attrition, it is important to identify those who are at risk of churn. In this project, we perform churn prediction on users' data log of Sparkify which is a fictional music streaming service created by Udacity. On Sparkify, users can upgrade, downgrade or cancel their subscription at any time. We define cancellation of service as churn event.
 
 The full dataset consists of 12 GB of users' interaction logs. Udacity has also provided a mini dataset of 128 MB. The strategy for predicting churns includes performing exploratory data analysis and model developments using the mini dataset first, and then modifying these models so that they are scalable for the full dataset. These models are trained with full dataset on Amazon EMR platform using Apache Spark.
 
