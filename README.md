@@ -100,7 +100,13 @@ Before the data preprocessing was adapted to include more aggregates by userId a
 
 On Amazon EMR cluster, we trained logistic regression, random forest and gradient boosted trees models. The cluster consisted of three nodes with instance type of m5.xlarge. The full dataset of 12GB was split into 80% train and 20% test datasets. Model performance was evaluated on test dataset. We used default parameters for logistic regression and random forest classifiers. For GBTClassifier we used maxDepth = 7, maxIter = 50, stepSize = 0.8, and subsamplingRate = 0.8 . The choice of these parameters was guided by our experience in training with mini dataset and available resources. We achieved excellent results with GBTClassifier with weighted F1 score of 0.97 and AUC of 0.98. 
 
-Models' performance with full dataset trained on Amazon EMR We also checked for precision and recall for our best model. For predicting churn users, we obtained precision of 0.97 and recall of 0.90.
+![f1_auc_full](/images/f1_auc_full.png)
+
+We also checked for precision and recall for our best model. For predicting churn users, we obtained precision of 0.97 and recall of 0.90.
+
+
+
+While we already have a very good performance with our current model, there are still potential improvements. We could extract region from location and use it as a feature instead of state, use different time windows for creating aggregate features, and perform more hyperparameter tuning with grid search.
 
 
 
