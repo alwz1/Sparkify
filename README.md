@@ -60,7 +60,11 @@ Next, we find hourly, daily and monthly churn events. For the mini dataset there
 ![hourly_churn](/images/hourly_churn_events.png)
 ![monthly_churn](/images/monthly_churn_events.png)
 
-We select the following as potential features for our model development and check the correlations to avoid multicollinearity. These correlations can be seen in the following heatmap. We notice that `month` has the highest correlation coefficient of 0.27 with the label `churn_user`. This is not surprising since there are no churn users in September and December for the mini dataset. `days_since_registration` has the next highest correlation coefficient of 0.23 with `churn_user`.
+We select the following as potential features for our model development and check the correlations to avoid multicollinearity.
+The absolute values of the correlation coefficients are shown in the following heatmap.
+We notice that `month` has the highest correlation coefficient of 0.27 with the label `churn_user`. 
+This is not surprising since there are no churn users in September and December for the mini dataset. 
+`days_since_registration` has the next highest correlation coefficient of 0.23 with `churn_user`.
 
 ![features](/images/features.png)
 ![heatmap](/images/heatmap.png)
