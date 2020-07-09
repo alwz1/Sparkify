@@ -58,6 +58,8 @@ We also find the number of churn events for the time of day. For this mini datas
 ![hourly_churn](/images/hourly_churn_events.png)
 ![monthly_churn](/images/monthly_churn_events.png)
 
+We select the following as potential features for our model developments and check the correlations to avoid multicollinearity. These correlations can be seen in the following heatmap. We notice that `month` has the highest correlation coefficient of 0.27 with the label `churn_user`. This is not surprising since there are no churn users in September and December for the mini dataset. `days_since_registration` has the next highest correlation coefficient of 0.23 with `churn_user`.
+
 ### Licensing, Authors, Acknowledgements<a name="licensing"></a>
 MIT License
 
