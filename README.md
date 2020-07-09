@@ -92,7 +92,7 @@ Since we have imbalanced dataset, accuracy is not the best metrics to evaluate m
 
 ![f1_auc_mini](/images/f1_auc_mini.png)
 
-We have the best F1 score with the gradient boosted trees model. This model's hyper-parameters, stepSizeand maxIter are then tuned using a three-fold cross validation on the training dataset. We have the best F1 score of 0.98 for the mini dataset with stepSize = 0.5 and maxIter = 32. 
+We have the best F1 score with the gradient boosted trees model. This model's hyper-parameters, `stepSize` and `maxIter` are then tuned using a three-fold cross validation on the training dataset. We have the best F1 score of 0.98 for the mini dataset with `stepSize = 0.5` and `maxIter = 32`. 
 
 ##### Full Dataset
 
