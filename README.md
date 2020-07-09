@@ -62,6 +62,33 @@ We select the following as potential features for our model developments and che
 
 ![features](/images/features.png)
 ![heatmap](/images/heatmap.png)
+
+
+#### Data Preprocessing
+Data preprocessing steps for the mini dataset are following. 
+- Clean data by removing rows with missing registration values.
+- Add churn event and churn user columns.
+- Add number of days since registration.
+- Add hour, day, and month columns. 
+- Add aggregate feature columns: num_Thumbs Down, num_Roll Advert, num_Add Friend, and num_Error.
+- Extract users' states from location. 
+- Remove unnecessary columns. 
+
+For the full dataset we make the following modifications to data preprocessing. 
+- Instead of using itemInSession directly, find the average number of items in session for each user. 
+- Find the maximum number of days since registration for each user. 
+- Find the average hour, day and month that the user is active.
+- Add phase of subscription level for each user.
+- Remove duplicate rows. 
+
+These modifications help keep the size of the preprocessed data in check to be trained efficiently on the AWS cluster.   
+We also prepare machine learning pipelines for logistic regression, random forest and gradient boosted trees models. Stages for the pipelines include indexing and one-hot encoding categorical columns, transforming columns into a single vector column, and scaling the values of the features into the range from 0 to 1.
+
+
+
+
+
+
 ### Licensing, Authors, Acknowledgements<a name="licensing"></a>
 MIT License
 
