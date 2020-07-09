@@ -56,7 +56,7 @@ How long a user has been with Sparkify can be found from the registration and ti
 We also find the number of churn events for the time of day. For this mini dataset there are no churn events between 3 AM and 4 AM. Similar analysis is done for days and months, and we find that there are no churn events in September and December.
 
 ![hourly_churn](/images/hourly_churn_events.png)
-![monthly_churn](/images/montly_churn_events.png)
+![monthly_churn](/images/monthly_churn_events.png)
 
 ### Licensing, Authors, Acknowledgements<a name="licensing"></a>
 MIT License
