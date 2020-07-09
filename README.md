@@ -17,6 +17,8 @@ To prevent customer attrition, it is important to identify those who are at risk
 
 The full dataset consists of 12 GB of users' interaction logs. Udacity has also provided a mini dataset of 128 MB. The strategy for predicting churns includes performing exploratory data analysis and model developments using the mini dataset first, and then modifying these models so that they are scalable for the full dataset. These models are trained with full dataset on Amazon EMR platform using Apache Spark.
 
+A blog post of this project is available on [Medium](https://medium.com/p/c2ca21be798b/edit).
+
 ### File Descriptions<a name="file_descriptions"></a>
 - Sparkify.ipynb: notebook for data exploration, feature engineering, modeling and evaluation with mini dataset
 - Sparkify_aws.ipynb: notebook for modeling and evaluation with full dataset on Amazon EMR cluster
@@ -105,6 +107,8 @@ On Amazon EMR cluster, we trained logistic regression, random forest and gradien
 We also checked for precision and recall for our best model. For predicting churn users, we obtained precision of 0.97 and recall of 0.90.
 
 ![classification_report](/images/classification_report.png)
+
+![ROC](/images/ROC_Curve.png)
 
 
 
