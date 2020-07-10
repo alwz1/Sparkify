@@ -87,7 +87,8 @@ For the full dataset we make the following modifications to data preprocessing.�
 - Add phase of subscription level for each user.
 - Remove duplicate rows. 
 
-These modifications help keep the size of the preprocessed data in check to be trained efficiently on the AWS cluster.   
+These modifications help keep the size of the preprocessed data in check to be trained efficiently on the AWS cluster. 
+The labels of the preprocessed data are imbalanced with about 23% of the labels for churn users.
 We also prepare machine learning pipelines for logistic regression, random forest and gradient boosted trees models. Stages for the pipelines include indexing and one-hot encoding categorical columns, transforming columns into a single vector column, and scaling the values of the features into the range from 0 to 1.
 
 #### Modeling and Evaluation
