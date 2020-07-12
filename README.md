@@ -45,16 +45,17 @@ To gain more insight into the behavior of users who stayed versus users who chur
 There are 104 female and 121 male users of which 20 female and 32 male users are churn. The percentage of churn by gender can be seen below.
 
 ![gender](/images/gender.png)
+
 There are 195 users whose subscription level is free and 165 paid users. It is found that paid users churn more. The total number of free and paid users is more than that of distinct users because some users change their subscription level multiple times.
 
 
 ![level](/images/level.png)
 
-Next, state for each user is extracted from location, and the distribution of churn events by state is obtained. The number of churn events vary across the states, and therefore it can be a potential feature in predicting churn.
+Next, `state` for each user is extracted from `location`, and the distribution of churn events by state is obtained. The number of churn events vary across the states, and therefore it can be a potential feature in predicting churn.
 
 ![state](/images/state.png)
 
-Subscription lengths for users are found from registration and timestamp ts. It is observed that users who stayed tend to be with the service longer than those who churn.
+Subscription lengths for users are found from `registration` and timestamp `ts`. It is observed that users who stayed tend to be with the service longer than those who churn.
 
 ![registration_days](/images/days_since_registration.png)
 
@@ -65,7 +66,7 @@ Next, seasonality of churn events is investigated. For the mini dataset there ar
 
 The following thirteen features are selected as potential features for model development. The correlations between the features are also checked to avoid multicollinearity.
 
-The absolute values of the correlation coefficients between selected features of mini dataset are shown in the following heatmap. It is observed that month has the highest absolute correlation coefficient of 0.27 with the label churn_user followed by days_since_registration with 0.23.
+The absolute values of the correlation coefficients between selected features of mini dataset are shown in the following heatmap. It is observed that `month` has the highest absolute correlation coefficient of 0.27 with the label churn_user followed by `days_since_registration` with 0.23.
 
 ![features](/images/features.png)
 ![heatmap](/images/heatmap.png)
