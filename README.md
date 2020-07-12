@@ -66,9 +66,10 @@ Next, seasonality of churn events is investigated. For the mini dataset there ar
 
 The following thirteen features are selected as potential features for model development. The correlations between the features are also checked to avoid multicollinearity.
 
+![features](/images/features.png)
+
 The absolute values of the correlation coefficients between selected features of mini dataset are shown in the following heatmap. It is observed that `month` has the highest absolute correlation coefficient of 0.27 with the label churn_user followed by `days_since_registration` with 0.23.
 
-![features](/images/features.png)
 ![heatmap](/images/heatmap.png)
 
 
