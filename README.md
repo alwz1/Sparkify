@@ -75,7 +75,7 @@ The absolute values of the correlation coefficients between selected features of
 
 #### Data Preprocessing
 Data preprocessing steps for the mini dataset are following. 
-- Clean data by removing rows with missing registration values.
+- Clean data by removing rows with missing `registration` values and imputing `length` with 0. 
 - Add churn event and churn user columns.
 - Add number of days since registration.
 - Add hour, day, and month columns. 
@@ -84,15 +84,15 @@ Data preprocessing steps for the mini dataset are following. 
 - Remove unnecessary columns. 
 
 For the full dataset we make the following modifications to data preprocessing. 
-- Instead of using itemInSession directly, find the average number of items in session for each user. 
+- Instead of using `itemInSession` directly, find the average number of items in session for each user. 
 - Find the maximum number of days since registration for each user. 
 - Find the average hour, day and month that the user is active.
 - Add phase of subscription level for each user.
 - Remove duplicate rows. 
 
-These modifications help keep the size of the preprocessed data in check to be trained efficiently on the AWS cluster. 
-The labels of the preprocessed data are imbalanced with about 23% of the labels for churn users.
-We also prepare machine learning pipelines for logistic regression, random forest and gradient boosted trees models. Stages for the pipelines include indexing and one-hot encoding categorical columns, transforming columns into a single vector column, and scaling the values of the features into the range from 0 to 1.
+These modifications help keep the size of the preprocessed data in check to be trained efficiently on the AWS cluster. The labels of the preprocessed data are imbalanced with about 23% of the labels for churn users.
+
+Next, machine learning pipelines for logistic regression, random forest and gradient boosted trees models are prepared. Stages for the pipelines include indexing and one-hot encoding categorical columns, transforming columns into a single vector column, and scaling the values of the features into the range from 0 to 1.
 
 #### Modeling and Evaluation
 ##### Mini Dataset
