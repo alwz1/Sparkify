@@ -27,9 +27,14 @@ A blog post of this project is available on [Medium](https://medium.com/p/c2ca21
 
 ### Results<a name="results"></a>
 #### Exploratory Data Analysis
-There are 286500 records in the mini datatset. We find that there are missing values for registration. Users without registration may be guest users and are not valid for our churn analysis. We therefore drop the rows with missing registration values. After dropping, we still have missing values in `artist`, `length`, and `song`. However, a closer look at the `page` reveals that these columns do not have missing values when a user is on the page `NextSong`.
+Initial data exploration is performed using the mini dataset. No additional information on the columns is provided, but most column names are self-explanatory. They can also be understood with a little exploration - level for user's subscription tier, registration and ts for timestamps, and status for HTTP status codes. User interactions with the service such as logging in, playing next song, and adding friends can be found in page.
 
-We define churn event as a user visiting `Cancellation Confirmation` page and identify users who are churn. We find that the labels are not balanced. Only about 16% of the labels are for churn users.
+There are 286500 records in the mini dataset, and 8346 missing values in registration. Users with missing registration values may be guest users and are not relevant for churn prediction. Therefore, rows without registration values are dropped.
+
+After dropping missing registration values, there are still 50046 missing values in artist, length, and song. These missing values result from users visiting other pages instead of playing the next song; they do not have missing values when a user is on NextSong.
+
+Churn event is defined as a user visiting Cancellation Confirmation page. churn_event and churn_use columns are then created. It is observed that the classes are not balanced. Only about 16% of the labels are for churn users.
+
 There are 255 distinct users and 52 of them are churn.
 
 ![churn](/images/churns.png)
