@@ -96,34 +96,33 @@ Next, machine learning pipelines for logistic regression, random forest and grad
 
 #### Modeling and Evaluation
 ##### Mini Dataset
-We train logistic regression, random forest and gradient boosted trees models. The dataset is split into 80% train and 20% test datasets. The Spark ML pipelines are instantiated, and the models are first trained with default parameters for the classifiers. 
+We train logistic regression, random forest and gradient boosted trees models taking logistic regression as the baseline model. The dataset is split into 80% train and 20% test datasets. The Spark ML pipelines are instantiated, and the models are first trained with default parameters for the classifiers.
 
-Since we have imbalanced dataset, accuracy is not the best metrics to evaluate models' performance. Instead, we use weighted F1 scores as the metrics for evaluating performance of the models. In addition, we find AUC scores, area under ROC curve. The models are evaluated using the test dataset. For the mini dataset using the default parameters for the classifiers, we obtain the following results.
+Since the preprocessed datasets are imbalanced, weighted F1 scores is used as the metrics for evaluating performance of the models. In addition, we find AUC scores, area under ROC curve. The models are evaluated using the test dataset. For the mini dataset using the default parameters for the classifiers, we obtain the following results.
 
 ![f1_auc_mini](/images/f1_auc_mini.png)
 
-We have the best F1 score with the gradient boosted trees model. This model's hyper-parameters, `stepSize` and `maxIter` are then tuned using a three-fold cross validation on the training dataset. We have the best F1 score of 0.98 for the mini dataset with `stepSize = 0.5` and `maxIter = 32`. 
+The gradient boosted trees model has the best F1 score of 0.93. This model's hyper-parameters, stepSizeand maxIter are then tuned using a three-fold cross validation on the training dataset. After hyperparameter tuning, the best model for the mini dataset has the weighted F1 score of 0.98.
 
 ##### Full Dataset
 
-Before the data preprocessing was adapted to include more aggregates by userId as mentioned in the previous section, training the gradient boosted trees model with full dataset on Amazon EMR cluster was taking a long time and would eventually time out. We tried increasing Spark driver memory, but the problem persisted. Preprocessing the full dataset with more aggregate features solved this problem. 
+Before the data preprocessing was adapted to include more aggregates by userId as mentioned in the previous section, training the gradient boosted trees model with full dataset on Amazon EMR cluster was taking a long time and would eventually time out. We tried increasing Spark driver memory, but the problem persisted. Preprocessing the full dataset with more aggregate features solved this problem.
 
-On Amazon EMR cluster, we trained logistic regression, random forest and gradient boosted trees models. The cluster consisted of three nodes with instance type of m5.xlarge. The full dataset of 12GB was split into 80% train and 20% test datasets. Model performance was evaluated on test dataset. We used default parameters for logistic regression and random forest classifiers. For GBTClassifier we used `maxDepth = 7`, `maxIter = 50`, `stepSize = 0.8`, and `subsamplingRate = 0.8`. The choice of these parameters was guided by our experience in training with mini dataset and available resources. We achieved excellent results with GBTClassifier with weighted F1 score of 0.97 and AUC of 0.98. 
+On Amazon EMR cluster, we trained logistic regression, random forest and gradient boosted trees models. The cluster consisted of three nodes with instance type of m5.xlarge. The full dataset of 12GB was split into 80% train and 20% test datasets. Model performance was evaluated on test dataset. We used default parameters for logistic regression and random forest classifiers. For GBTClassifier we used maxDepth = 7, maxIter = 50, stepSize = 0.8, and subsamplingRate = 0.8. The choice of these parameters was guided by our experience in training with mini dataset and available resources. We achieved excellent results with GBTClassifier with weighted F1 score of 0.97 and AUC of 0.98.
 
 ![f1_auc_full](/images/f1_auc_full.png)
 
-We also checked for precision and recall for our best model. For predicting churn users, we obtained precision of 0.97 and recall of 0.90.
+We also checked for precision and recall for our best model. For predicting churn users, we obtained precision of 0.97 and recall of 0.90. The ROC curve is shown in the following.
 
 ![classification_report](/images/classification_report.png)
 
 ![ROC](/images/ROC_Curve.png)
 
+We have analyzed and developed models for predicting user churns. Our best model is gradient boosted trees model with weighted F1 score of 0.97. We used F1 score as the metrics for evaluating model performance because the dataset for churn users was imbalanced. We determined the potential features for model development from the analysis of mini dataset and checked for multicollinearity. Initial data preprocessing did not scale well for the full dataset and we had issues with training the models. Therefore, it was modified so that the models could be trained on Amazon EMR cluster efficiently. 
 
+While we already have a very good performance with our current model, there are still potential improvements. For example, we could resample data to make the classes balanced, extract region from location and use it as a feature instead of state, use different time windows for creating aggregate features, and perform more hyperparameter tuning with grid search. In this project, we have defined churn event as simply cancellation of service. For future work, one could include downgrading subscription tier as churn event as well.
 
-While we already have a very good performance with our current model, there are still potential improvements. We could extract region from location and use it as a feature instead of state, use different time windows for creating aggregate features, and perform more hyperparameter tuning with grid search.
-
-
-
+Fred Reichheld, "Prescription for cutting costs". 
 
 ### Licensing, Authors, Acknowledgements<a name="licensing"></a>
 MIT License
