@@ -13,6 +13,8 @@ Amazon EMR
 - Apache Spark
 
 ### Project Motivation<a name="project_motivation"></a>
+The longer customers stay with a business the more profit it will make. While a business will want to attract new customers, it is crucial to retain the existing customers. Improving customer retention just by 5% can lead to more than 25% increase in profit [1]. It is less costly to retain than acquiring new customers. Moreover, satisfied customers can help attract new users through referrals.
+
 To prevent customer attrition, it is important to identify those who are at high risk of churn. In this project, we perform churn prediction for Sparkify, a fictional music streaming service created by Udacity. It has provided with a full dataset of 12GB and also a mini dataset of 128MB. 
 
 The strategy for predicting churns includes performing exploratory data analysis and model development using the mini dataset first, and then adapting models to make them scalable for the full dataset. The adapted models are trained on Amazon EMR platform with full dataset using Apache Spark.
