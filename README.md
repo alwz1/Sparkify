@@ -19,7 +19,6 @@ To prevent customer attrition, it is important to identify those who are at high
 
 The strategy for predicting churns includes performing exploratory data analysis and model development using the mini dataset first, and then adapting models to make them scalable for the full dataset. The adapted models are trained on Amazon EMR platform with full dataset using Apache Spark.
 
-A blog post of this project is available on [Medium](https://medium.com/@ayeluwin11/churn-prediction-using-apache-spark-on-amazon-emr-c2ca21be798b).
 
 ### File Descriptions<a name="file_descriptions"></a>
 - Sparkify.ipynb: notebook for data exploration, feature engineering, modeling and evaluation with mini dataset
